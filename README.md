@@ -12,6 +12,7 @@ Para configurar cada atributo de grid que necesitas, solo añade los atributos d
 data-gfbs-gtc : grid-template-columns;
 data-gfbs-gtr : grid-template-rows;
 
+<div>
   <div class="d-grid bg-dark" data-gfbs data-gfbs-gtc="repeat(4, 1fr)" data-gfbs-gtr="repeat(2, 50px)" >
     <div class="bg-primary p-1">
       1
@@ -33,6 +34,7 @@ data-gfbs-gtr : grid-template-rows;
       6
     </div>
   </div>
+</div>
   
   
-  Más adelante haré la documentación completa, mientras te recomiendo que revises el d-grid.js y el index.html para ver más ejemplos de uso.
+Más adelante haré la documentación completa, mientras te recomiendo que revises el d-grid.js y el index.html para ver más ejemplos de uso.
