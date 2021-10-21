@@ -30,9 +30,9 @@
     </style>
   </head>
   <body>
-    <!-- Change Language -->
+    <!-- Change Languaje -->
     <div class="dropdown">
-      <button id="switch-lang" class="d-block btn btn-light text-dark position-fixed top-0 start-0 mt-3 ms-3 dropdown-toggle"
+      <button id="switch-lang" onclick="SwitchLang()" class="d-block btn btn-light text-dark position-fixed top-0 start-0 mt-3 ms-3 dropdown-toggle"
       type="button" id="dropDownLang" data-bs-toggle="dropdown" aria-expanded="false">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-translate" viewBox="0 0 16 16">
           <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z"/>
@@ -40,33 +40,17 @@
         </svg>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropDownLang">
-        <li>
-          <button class="w-100 btn text-center" onclick="SwitchLang('es')">
-            Español
-          </button>
-        </li>
-        <hr />
-        <li >
-          <button class="w-100 btn text-center" onclick="SwitchLang('en')">
-            English
-          </button>
-        </li>
+        <li>Español</li>
+        <li>Ingles</li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
       </ul>
     </div>
     
     <h1 class="text-center text-light my-5">d-grid-features-for-bootstrap</h1>
 
-    <div class="text-center text-light p-3 my-3 w-75 mx-auto">
-      <p lang="en">
-        This library has the purpose of being able to use the grid features within
-        bootstrap without generating a css of more than 20,000 lines of code and that is responsive
-        with your own values that you want to give to each property.
-      </p>
-      <p lang="es">
-        Esta librería tiene el propósito de poder usar las características de grid dentro de 
-        bootstrap sin que se genere un css de más de 20,000 lineas de código y que sea responsivo 
-        con tus propios valores que le quieras dar a cada propiedad.
-      </p>
+    <div class="text-center text-light p-3 m-3">
+      <p lang="en">I really enjoy coding.</p>
+      <p lang="es">Me gusta mucho la codificación.</p>
     </div>p>
     </div>
 
