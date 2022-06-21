@@ -1,10 +1,10 @@
 "use strict";
 
-function gridCreate(){
+const gridCreate = () => {
   let wWidth = window.innerWidth;
   let gridElements = document.querySelectorAll("[data-gfbs]");
-  
-  function checkIfHasBP(gridElement, atr) {
+
+  const checkIfHasBP = (gridElement, atr) => {
     let hasIt = false;
     for (let attribute of gridElement.attributes) {
       let at = attribute.localName;
@@ -28,15 +28,15 @@ function gridCreate(){
         }
       }
     }
-  
+
     return hasIt;
-  }
-  
+  };
+
   for (let gridElement of gridElements) {
     for (let attribute of gridElement.attributes) {
       let at = attribute.localName;
       let attValue = attribute.value;
-  
+
       if (
         at.includes("gfbs-") &&
         ((!at.includes("-sm") &&
@@ -121,7 +121,7 @@ function gridCreate(){
           case at.includes("grid"):
             gridElement.style.grid = attValue;
             break;
-  
+
           /* Item */
           case at.includes("gcs"):
             gridElement.style.gridColumnStart = attValue;
@@ -157,7 +157,7 @@ function gridCreate(){
       }
     }
   }
-}
+};
 
 window.onload = gridCreate();
 window.addEventListener("resize", gridCreate);

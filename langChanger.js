@@ -3,8 +3,14 @@ let currentLang = document.documentElement.lang;
 let elementsEs = document.querySelectorAll('[lang="es"]');
 let elementsEn = document.querySelectorAll('[lang="en"]');
 
-for (let element of elementsEn) {
-  element.classList.add("d-none");
+if(currentLang === "en"){
+  for (let element of elementsEs) {
+    element.classList.add("d-none");
+  }
+} else {
+  for (let element of elementsEn) {
+    element.classList.add("d-none");
+  }
 }
 
 // document.getElementById("switch-lang").addEventListener("click", SwitchLang());
