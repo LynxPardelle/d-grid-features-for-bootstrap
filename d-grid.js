@@ -49,17 +49,20 @@ async function GridCreate() {
           if (aCrClMessage === "continue") {
             continue;
           }
-          /* let cssRules = sheets.map((s) =>
-            [...s.cssRules]
-              .reverse()
-          );
-          console.log(cssRules); */
           if (
             sheets
               .map((s) =>
-                [...s.cssRules]
-                  .reverse()
-                  .find((i) => i.cssText.includes(gfbStringed))
+                [...s.cssRules].reverse().find(
+                  (i) =>
+                    i.cssText.includes(gfbStringed) ||
+                    i.cssText.includes(
+                      attValue
+                        .replace(/\n/g, "")
+                        .replace(/\s\s/g, "")
+                        .replace(/end\]\[row/g, "end row")
+                        .replace("]/", "] /")
+                    )
+                )
               )
               .filter((i) => i)
               .pop()
@@ -82,7 +85,6 @@ async function GridCreate() {
           ) {
             hasBP = true;
           }
-          // attValue = attValue.replace(/\n/g, "").replace(/\s\s/g, "");
           switch (property) {
             // Container
             case "custom":
@@ -98,7 +100,11 @@ async function GridCreate() {
               gfbStringed += `{grid-template-areas:${attValue};}`;
               break;
             case "gt":
-              gfbStringed += `{grid-template:${attValue};}`;
+              gfbStringed += `{grid-template:${attValue
+                .replace(/\n/g, "")
+                .replace(/\s\s/g, "")
+                .replace(/end\]\[row/g, "end row")
+                .replace("]/", "] /")};}`;
               break;
             case "cg":
               gfbStringed += `{column-gap:${attValue};}`;
@@ -207,7 +213,6 @@ async function GridCreate() {
           }
         }
       }
-      /* Here gridElement will get the newClasses */
       for (let newClass of newClasses) {
         gridElement.classList.add(newClass.split("DIVISOR")[0]);
       }
@@ -422,34 +427,6 @@ async function randomString(length) {
   }
   return result;
 }
-
-/* const checkIfHasBP = (gridElement, atr) => {
-    let hasIt = false;
-    for (let attribute of gridElement.attributes) {
-      let at = attribute.localName;
-      if (at.includes(atr)) {
-        switch (true) {
-          case "-sm" && wWidth >= 576 && wWidth < 768:
-            hasIt = true;
-            break;
-          case "-md" && wWidth >= 768 && wWidth < 992:
-            hasIt = true;
-            break;
-          case "-lg" && wWidth >= 992 && wWidth < 1200:
-            hasIt = true;
-            break;
-          case "-xl" && wWidth >= 1200 && wWidth < 1400:
-            hasIt = true;
-            break;
-          case "-xxl" && wWidth >= 1400:
-            hasIt = true;
-            break;
-        }
-      }
-    }
-
-    return hasIt;
-  }; */
 
 if (window) {
   window.onload = GridCreate();
